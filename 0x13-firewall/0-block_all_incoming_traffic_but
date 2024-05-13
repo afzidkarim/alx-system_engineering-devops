@@ -1,13 +1,14 @@
-#!/usr/bin/env bash
-#Double the number of webservers
-
-sudo apt-get update
-sudo apt-get install ufw -y
-sudo ufw status verbose
+#!/bin/bash
+# Script to install and configure UFW (Uncomplicated Firewall) on a server.
+sudo apt update # Update package lists
+sudo apt install ufw # Install UFW
+# Set default policies
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
+# Allow SSH, HTTP, and HTTPS
 sudo ufw allow 22/tcp
 sudo ufw allow 80/tcp
 sudo ufw allow 443/tcp
-echo "y" | sudo ufw enable
-sudo ufw status verbose
+# Enable UFW and reload rules
+sudo ufw enable
+sudo ufw reload
