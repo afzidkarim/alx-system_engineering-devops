@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script performs DNS lookups for specified subdomains of a given domain.
+domain_name="$1"
+subdomain="$2"
+
+if [ "$#" -eq 1 ]; then
+    echo "$(dig www.${domain_name})" |  grep 'ANSWER SECTION:' -A 1 | awk '/IN/ {print "The subdomain www is a " $4 " record and points to " $5 ""}'
+    echo "$(dig lb-01.${domain_name})" |  grep 'ANSWER SECTION:' -A 1 | awk '/IN/ {print "The subdomain lb-01 is a " $4 " record and points to " $5 ""}'
+    echo "$(dig web-01.${domain_name})" |  grep 'ANSWER SECTION:' -A 1 | awk '/IN/ {print "The subdomain web-01 is a " $4 " record and points to " $5 ""}'
+    echo "$(dig web-02.${domain_name})" |  grep 'ANSWER SECTION:' -A 1 | awk '/IN/ {print "The subdomain web-02 is a " $4 " record and points to " $5 ""}'
+
+elif [ "$#" -eq 2 ]; then 
+    echo "$(dig ${subdomain}.${domain_name})" |  grep 'ANSWER SECTION:' -A 1 | awk '/IN/ {print "The subdomain '"$subdomain"' is a " $4 " record and points to " $5 ""}'
+fi

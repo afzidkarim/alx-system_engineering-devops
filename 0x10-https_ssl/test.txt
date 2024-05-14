@@ -1,0 +1,18 @@
+; <<>> DiG 9.18.18-0ubuntu0.22.04.1-Ubuntu <<>> www.holberton.online
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 65196
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;www.holberton.online.          IN      A
+
+;; ANSWER SECTION:
+www.holberton.online.   195     IN      A       54.210.47.110
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Sun Nov 05 06:31:54 +01 2023
+;; MSG SIZE  rcvd: 65
